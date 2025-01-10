@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "Livvic-Thin";
+    src: url(fonts/livvic/Livvic-Thin.ttf);
+}
+
+
+body {
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina rellenos */
+    background-image: url('../img/fondo.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* La imagen cubrirá todo el fondo */
+    background-repeat: no-repeat; /* No repetirá la imagen */
+    background-attachment: fixed; /* Hace que la imagen sea fija */
+    background-position: center; /* Centra la imagen */
+    
+}
+
+#middle_bg{
+    width: 90%;
+    margin-left: 5vw;
+    margin-bottom: 10vh;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  #title{
+    margin-top: 1vw;
+    color:#F7DED0;
+    font-size: 10vw;
+    font-family: "Livvic-Thin";
+  }
