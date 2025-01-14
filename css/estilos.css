@@ -1,8 +1,12 @@
 @font-face {
     font-family: "Livvic-Thin";
     src: url(fonts/livvic/Livvic-Thin.ttf);
+    font-display: swap; /* Muestra una fuente de reserva mientras se carga */
 }
 
+html {
+  scroll-behavior: smooth; /* Habilita el desplazamiento suave */
+}
 
 body {
     margin: 0; /* Elimina márgenes */
@@ -12,7 +16,7 @@ body {
     background-repeat: no-repeat; /* No repetirá la imagen */
     background-attachment: fixed; /* Hace que la imagen sea fija */
     background-position: center; /* Centra la imagen */
-    
+
 }
 
 #middle_bg{
@@ -29,3 +33,98 @@ body {
     font-size: 10vw;
     font-family: "Livvic-Thin";
   }
+
+  section {
+    padding: 100px;
+    height: 50vh; /* Simula secciones largas */
+    border-bottom: 1px solid #ccc;
+
+    background-color: #575757;
+}
+
+/************************************************************************/
+/************************* Barra de navegación **************************/
+/************************************************************************/
+.navbar {
+    position: fixed; /* Fija la barra en la parte superior */
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la página */
+    height: 150px;
+    background-color: none; /* Fondo oscuro */
+    color: white;
+    z-index: 1000; /* Asegura que quede encima del resto del contenido */
+    transition: background-color 0.5s, height 0.5s, color 0.5s;
+}
+
+.navbar #secdiv {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: right;
+}
+
+.navbar #left {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Muestra los elementos en fila */
+    justify-content: left;
+}
+
+
+.navbar ul {
+  display: flex; /* Convierte el contenedor en flexbox */
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar img{
+    height: clamp(7px, 4.2vw, 70px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: clamp(0.5px, 0.5vw, 1px);
+    margin-bottom: clamp(0.5px, 0.5vw, 1px);
+}
+
+.navbar a {
+    text-decoration: none; /* Quita el subrayado */
+    color: white;
+    font-size: clamp(8px, 1.5vw, 30px);
+    /* padding: 1vw 0.7vw; */
+    margin: 0.2vw 0.7vw;
+    display: block;
+    transition: background-color 0.3s ease; /* Animación al pasar el ratón */
+    align-items: center;
+}
+
+.navbar a:hover {
+  color: #999999;
+}
+
+.navbar.scrolled {
+  background-color: white; /* Cambia el color al hacer scroll */
+  height: 70px; /* Reduce la altura */
+  color: black;
+}
+
+.new-items {
+  display: flex; /* Convierte el contenedor en flexbox */
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hidden {
+  visibility: hidden; /* Oculta los nuevos elementos inicialmente */
+}
+
+/************************************************************************/
+/************************************************************************/
