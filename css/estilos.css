@@ -1,7 +1,13 @@
 @font-face {
-    font-family: "Livvic-Thin";
-    src: url(fonts/livvic/Livvic-Thin.ttf);
-    font-display: swap; /* Muestra una fuente de reserva mientras se carga */
+  font-family: "Livvic-Thin";
+  src: url(fonts/livvic/Livvic-Thin.ttf);
+  font-display: swap; /* Muestra una fuente de reserva mientras se carga */
+}
+
+@font-face {
+  font-family: "Barlow-Thin";
+  src: url(fonts/barlow/Barlow-Light.ttf);
+  font-display: swap; /* Muestra una fuente de reserva mientras se carga */
 }
 
 html {
@@ -9,70 +15,52 @@ html {
 }
 
 body {
-    margin: 0; /* Elimina márgenes */
-    padding: 0; /* Elimina rellenos */
-    background-image: url('../img/fondo.jpg'); /* Ruta de la imagen */
-    background-size: cover; /* La imagen cubrirá todo el fondo */
-    background-repeat: no-repeat; /* No repetirá la imagen */
-    background-attachment: fixed; /* Hace que la imagen sea fija */
-    background-position: center; /* Centra la imagen */
-
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina rellenos */
+  background-image: url('../img/fondo.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* La imagen cubrirá todo el fondo */
+  background-repeat: no-repeat; /* No repetirá la imagen */
+  background-attachment: fixed; /* Hace que la imagen sea fija */
+  background-position: center; /* Centra la imagen */
 }
 
-#middle_bg{
-    width: 90%;
-    margin-left: 5vw;
-    margin-bottom: 10vh;
-    border-radius: 12px;
-    text-align: center;
-  }
-
-  #title{
-    margin-top: 1vw;
-    color:#F7DED0;
-    font-size: 10vw;
-    font-family: "Livvic-Thin";
-  }
-
-  section {
-    padding: 100px;
-    height: 50vh; /* Simula secciones largas */
-    border-bottom: 1px solid #ccc;
-
-    background-color: #575757;
+section:not(#start) {
+  padding: 100px;
+  height: 200vh; /* Simula secciones largas */
+  border-bottom: 1px solid #ccc;
+  background-color: #575757;
 }
 
 /************************************************************************/
-/************************* Barra de navegación **************************/
+/**************************** Navigation Bar ****************************/
 /************************************************************************/
 .navbar {
-    position: fixed; /* Fija la barra en la parte superior */
-    display: flex;
-    justify-content: space-between;
-    top: 0;
-    left: 0;
-    width: 100%; /* Ocupa todo el ancho de la página */
-    height: 150px;
-    background-color: none; /* Fondo oscuro */
-    color: white;
-    z-index: 1000; /* Asegura que quede encima del resto del contenido */
-    transition: background-color 0.5s, height 0.5s, color 0.5s;
+  position: fixed; /* Fija la barra en la parte superior */
+  display: flex;
+  justify-content: space-between;
+  top: -40px;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la página */
+  background-color: white; /* Cambia el color al hacer scroll */
+  height: 40px; /* Reduce la altura */
+  z-index: 1000; /* Asegura que quede encima del resto del contenido */
+  transition: transform 0.7s ease-in-out; /* Transición suave */
 }
 
 .navbar #secdiv {
-    list-style: none; /* Quita los puntos de la lista */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Muestra los elementos en fila */
-    justify-content: right;
+  list-style: none; /* Quita los puntos de la lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Muestra los elementos en fila */
+  justify-content: right;
 }
 
 .navbar #left {
-    list-style: none; /* Quita los puntos de la lista */
-    margin: 0;
-    padding: 0;
-    display: flex; /* Muestra los elementos en fila */
-    justify-content: left;
+  list-style: none; /* Quita los puntos de la lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Muestra los elementos en fila */
+  justify-content: left;
 }
 
 
@@ -85,46 +73,157 @@ body {
 }
 
 .navbar img{
-    height: clamp(7px, 4.2vw, 70px);
-    width: auto;
-    object-fit: contain;
-    display: block;
-    margin-top: clamp(0.5px, 0.5vw, 1px);
-    margin-bottom: clamp(0.5px, 0.5vw, 1px);
+  height: clamp(30px, 4.2vw, 40px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: clamp(0.25px, 0.5vw, 0.5px);
+  margin-bottom: clamp(0.25px, 0.5vw, 0.5px);
 }
 
 .navbar a {
-    text-decoration: none; /* Quita el subrayado */
-    color: white;
-    font-size: clamp(8px, 1.5vw, 30px);
-    /* padding: 1vw 0.7vw; */
-    margin: 0.2vw 0.7vw;
-    display: block;
-    transition: background-color 0.3s ease; /* Animación al pasar el ratón */
-    align-items: center;
+  text-decoration: none; /* Quita el subrayado */
+  color: black;
+  font-size: clamp(4px, 1.5vw, 15px);
+  font-family: "Barlow-Thin";
+  /* padding: 1vw 0.7vw; */
+  margin: 0.4vw 0.9vw;
+  display: block;
+  transition: background-color 0.3s ease; /* Animación al pasar el ratón */
+  align-items: center;
 }
 
 .navbar a:hover {
   color: #999999;
 }
 
-.navbar.scrolled {
-  background-color: white; /* Cambia el color al hacer scroll */
-  height: 70px; /* Reduce la altura */
-  color: black;
+.navbar.hidden {
+  transform: translateY(-40px); /* Mueve hacia arriba para ocultarlo */
 }
 
-.new-items {
+.navbar.visible {
+  transform: translateY(40px); /* Mueve hacia abajo para que sea visible */
+}
+
+/************************************************************************/
+/************************************************************************/
+/************************************************************************/
+
+
+/************************************************************************/
+/**************************** Start Section *****************************/
+/************************************************************************/
+
+/**************************** Start Navbar ******************************/
+.navbar.start {
+  position: absolute;
+  height: 80px;
+  top: 0px;
+  background-color: transparent; /* Cambia el color al hacer scroll */
+}
+
+.navbar.start a {
+  color: white;
+  font-size: clamp(6px, 2.25vw, 23px);
+  margin: 0.7vw 0.7vw;
+}
+
+.navbar.start a:hover {
+  color: #999999;
+}
+
+.navbar.start li {
   display: flex; /* Convierte el contenedor en flexbox */
   align-items: center; /* Alinea verticalmente los elementos */
-  margin: 0;
+  margin: 0 1.5vw 0;
   padding: 0;
   list-style: none;
 }
 
-.hidden {
-  visibility: hidden; /* Oculta los nuevos elementos inicialmente */
+/************************************************************************/
+
+#start {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
 }
 
-/************************************************************************/
-/************************************************************************/
+/* #welcome {
+  position: absolute;
+  margin: 22.5vh 20vw;
+  width: 60vw;
+  height: 45vh;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  gap: 10px;
+} */
+
+#name {
+  position: absolute;
+  display: flex;
+  color:#F7DED0;
+  margin-bottom: 30vh;
+  font-size: calc(12vmin + 1vw);
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  font-family: "Livvic-Thin";
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#socme {
+  position: absolute;
+  display: grid;
+  bottom: 5%;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px; /* Espacio opcional entre las columnas */
+  row-gap: 0;
+  width: clamp(5vw, 15vw, 10vw);
+  height: 15%;
+}
+
+#linkedin {
+  grid-column: 1 / 2; /* Ocupa la segunda columna */
+  display: block;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#email {
+  grid-column: 2 / 3; /* Ocupa la quinta columna */
+  display: block;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#socme img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  
+}
+
+#gmail {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  color: white;
+  font-size: calc(1.25vmin + 1vw);
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  font-family: "Livvic-Thin";
+  text-align: center;
+  width: 100%;
+  height: 5%;
+}

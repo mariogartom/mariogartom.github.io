@@ -1,16 +1,28 @@
-const navbar = document.getElementById('navbar');
-const newItems = document.querySelector('.new-items');
+// const navbar = document.getElementById('navbar');
+// const newItems = document.querySelector('.new-items');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) { // Detecta el scroll
-        navbar.classList.add('scrolled'); // Aplica la clase de estilo
-    } else {
-        navbar.classList.remove('scrolled'); // Revertir estilos si subes
-    }
+// window.addEventListener('scroll', () => {
+//     if (window.scrollY > 100) { // Detecta el scroll
+//         navbar.classList.add('visible'); // Oculta la barra
+//     } else {
+//         navbar.classList.remove('visible'); // Muestra la barra
+//     }
+// });
 
-    if (window.scrollY > 400) { // Detecta el scroll
-        newItems.classList.remove('hidden'); // Muestra los nuevos elementos
-    } else {
-        newItems.classList.add('hidden'); // Oculta los nuevos elementos
-    }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById('navbar');
+    const excludeSection = document.getElementById('start'); // Sección donde la barra debe desaparecer
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                navbar.classList.add('visible'); // Oculta la barra
+            } else {
+                navbar.classList.remove('visible'); // Muestra la barra
+            }
+        });
+    });
+
+    observer.observe(excludeSection); // Observa la sección a excluir
 });
