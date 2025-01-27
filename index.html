@@ -7,7 +7,7 @@
     <link href="https://fonts.cdnfonts.com/css/livvic" rel="stylesheet">
     <title>Mario Garcia</title>
     <style>
-        
+
     </style>
 </head>
 <body>
@@ -52,7 +52,7 @@
             <a id="linkedin" href="https://www.linkedin.com/in/mario-garc%C3%ADa-tom%C3%A1s-a54ab6329/" target="_blank">
                 <img src="img/linkedin2.png" alt="linkedin">
             </a>
-        
+
             <a id="email" href="mailto:mariogarto23@gmail.com">
                 <img src="img/email.png" alt="email">
             </a>
@@ -61,7 +61,7 @@
         <p id="gmail">
             mariogarto23@gmail.com
         </p>
-        
+
     </section>
 
     <section>
@@ -70,20 +70,20 @@
             <img id="picme" src="img/yo.png" alt="Yo">
         </div>
         <p class="text">
-            Soy recién graduado en Tecnología Digital y Multimedia, especializado en programación y desarrollo de soluciones tecnológicas. Me apasiona tanto la creación de videojuegos como el desarrollo 
-            de aplicaciones web y software en general. A lo largo de mi carrera académica y en proyectos 
-            personales, he trabajado en distintas áreas de la programación, siempre buscando la innovación 
-            y la eficiencia en mis soluciones. Estoy motivado por seguir aprendiendo y contribuir a proyectos 
+            Soy recién graduado en Tecnología Digital y Multimedia, especializado en programación y desarrollo de soluciones tecnológicas. Me apasiona tanto la creación de videojuegos como el desarrollo
+            de aplicaciones web y software en general. A lo largo de mi carrera académica y en proyectos
+            personales, he trabajado en distintas áreas de la programación, siempre buscando la innovación
+            y la eficiencia en mis soluciones. Estoy motivado por seguir aprendiendo y contribuir a proyectos
             que integren creatividad y tecnología de vanguardia.
         </p>
     </section>
 
     <section id="studies">
         <h1>ESTUDIOS</h1>
-        <p class="text">oy recién graduado en Tecnología Digital y Multimedia, especializado en programación y desarrollo de soluciones tecnológicas. Me apasiona tanto la creación de videojuegos como el desarrollo 
-            de aplicaciones web y software en general. A lo largo de mi carrera académica y en proyectos 
-            personales, he trabajado en distintas áreas de la programación, siempre buscando la innovación 
-            y la eficiencia en mis soluciones. Estoy motivado por seguir aprendiendo y contribuir a proyectos 
+        <p class="text" id="st_desc">oy recién graduado en Tecnología Digital y Multimedia, especializado en programación y desarrollo de soluciones tecnológicas. Me apasiona tanto la creación de videojuegos como el desarrollo
+            de aplicaciones web y software en general. A lo largo de mi carrera académica y en proyectos
+            personales, he trabajado en distintas áreas de la programación, siempre buscando la innovación
+            y la eficiencia en mis soluciones. Estoy motivado por seguir aprendiendo y contribuir a proyectos
             que integren creatividad y tecnología de vanguardia</p>
 
         <div id="logos">
@@ -111,14 +111,34 @@
                 VER CURRÍCULUM
             </p>
         </a>
-        
+
     </section>
 
     <section id="portfolio">
         <h1>PORTFOLIO</h1>
-        <p>Contenido de la sección Contacto...</p>
+        <div id="port_container">
+            <!-- Cosa 1 -->
+             <div class="elem_img" id="port_elem1" data-target="cosa1">
+                <img src="img/portfolio/tal.png" class="base-image">
+                <img src="img/portfolio/hoverimg.png" class="hover-img">
+             </div>
+
+            <div class="elem_desc hidden" id="cosa1">
+                <h1 class="desc_title">noseque</h1>
+                <p class="desc_text">Esto es noseque nosecuantos</p>
+                <div class="desc_img">
+                    <img src="img/portfolio/tal.png" class="base-image">
+                </div>
+                <img src="img/portfolio/cross.png" class="desc_cross" data-target="cosa1,port_elem1">
+            </div>
+        </div>
     </section>
-    
+
+    <section id="copyright">
+        <p>Mario García</p>
+    </section>
+
     <script src="javascript/navbar.js"></script>
+    <script src="javascript/portelem.js"></script>
 </body>
 </html>

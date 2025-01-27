@@ -40,7 +40,7 @@ body {
 section:not(#start):not(#cv_section) {
   padding: 50px;
   padding-bottom: 10px;
-  background-color: #34335b;
+  background-color: #22204a;
 }
 
 h1 {
@@ -54,10 +54,9 @@ h1 {
   font-family: "Barlow-Thin";
 }
 
-#text {
-  margin: 10vh 20% 0;
-  width: 60%;
-  font-size: clamp(0px calc(1vmin + 1vw) 40px);
+.text {
+  margin: 10vh 18% 0;
+  width: 64%;
   justify-content: center; /* Centrado horizontal */
   align-items: center; /* Centrado vertical */
   text-align: justify;
@@ -66,9 +65,15 @@ h1 {
 
 /* Pantallas grandes (1200px o más) */
 @media (max-width: 1200px) {
-  #text {
+  .text {
     margin: 10vh 12% 0;
     width: 76%; /* Altura para pantallas grandes */
+  }
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 2vw;
   }
 }
 
@@ -311,6 +316,10 @@ h1 {
 /******************************* Studies ********************************/
 /************************************************************************/
 
+#st_desc {
+  margin-top: 0;
+}
+
 #logos {
   display: flex;
   flex-wrap: wrap;
@@ -332,7 +341,6 @@ h1 {
     width: 74%; /* Altura para pantallas grandes */
   }
 }
-
 
 /************************************************************************/
 /************************************************************************/
@@ -370,3 +378,151 @@ h1 {
 /************************************************************************/
 /************************************************************************/
 /************************************************************************/
+
+
+/************************************************************************/
+/****************************** Portfolio *******************************/
+/************************************************************************/
+
+#port_container {
+  display: table;
+  content: " ";
+  box-sizing: border-box;
+}
+
+.elem_img {
+  width: 20vw;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.base-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.elem_img:hover .hover-img {
+  opacity: 0.8;
+}
+
+.elem_desc {
+  display: block;
+  background: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  width: 522px;
+  height: 80vh;
+  margin: 10vh 0;
+  align-items: center;
+  justify-self: center;
+  overflow: hidden;
+  color: black;
+}
+
+.desc_title {
+  border-bottom: solid #9999;
+  padding-bottom: 3%;
+  width: 94%;
+  margin: 3%;
+}
+
+.desc_text {
+  margin: 0 13%;
+  width: 76%;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  text-align: justify;
+  height: 5%;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(40px); /* Mueve hacia abajo para que sea visible */
+}
+
+.active {
+  pointer-events: auto;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.desc_img {
+  width: 70%;
+  margin: 0 15%;
+  height: auto;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  bottom: 12%;
+}
+
+.desc_cross {
+  width: 8%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* overflow: hidden; */
+  height: auto;
+  cursor: pointer;
+}
+
+/************************************************************************/
+/************************************************************************/
+/************************************************************************/
+
+
+/************************************************************************/
+/****************************** Copyright *******************************/
+/************************************************************************/
+
+#copyright {
+  position: absolute;
+  height: 80px;
+  top: 0px;
+  background-color: transparent; /* Cambia el color al hacer scroll */
+}
+
+.navbar.start a {
+  color: white;
+  font-size: clamp(6px, 2.25vw, 23px);
+  margin: 0.7vw 0.7vw;
+}
+
+.navbar.start a:hover {
+  color: #999999;
+}
+
+.navbar.start li {
+  display: flex; /* Convierte el contenedor en flexbox */
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin: 0 1.5vw 0;
+  padding: 0;
+  list-style: none;
+}
