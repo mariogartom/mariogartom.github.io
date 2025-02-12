@@ -1,5 +1,6 @@
-// Selecciona todas las imágenes con la clase toggleImage
 const images = document.querySelectorAll(".elem_img");
+const crosses = document.querySelectorAll(".desc_cross");
+const portElems = document.querySelectorAll(".port_elem")
 
 images.forEach((image) => {
     image.addEventListener("click", () => {
@@ -9,24 +10,25 @@ images.forEach((image) => {
         targetElement.classList.toggle("hidden");
         targetElement.classList.toggle("visible");
 
-        image.classList.toggle("active");
-        image.classList.toggle("disabled");
+        images.forEach(image => {
+            image.classList.remove("active");
+            image.classList.add("disabled");
+        });
     });
 });
 
-const crosses = document.querySelectorAll(".desc_cross");
-
 crosses.forEach((cross) => {
     cross.addEventListener("click", () => {
-        const targets = cross.getAttribute("data-target").split(",");
+        const target = cross.getAttribute("data-target");
 
-        const firstElement = document.getElementById(targets[0]); // Primer elemento
-        const secondElement = document.getElementById(targets[1]); // Segundo elemento
+        const targetElement = document.getElementById(target); // Primer elemento
     
-        firstElement.classList.toggle("hidden");
-        firstElement.classList.toggle("visible");
+        targetElement.classList.toggle("hidden");
+        targetElement.classList.toggle("visible");
 
-        secondElement.classList.toggle("active");
-        secondElement.classList.toggle("disabled");
+        images.forEach((image) => {
+            image.classList.remove("disabled");
+            image.classList.add("active");
+        });
     });
 });
